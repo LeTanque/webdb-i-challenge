@@ -49,7 +49,8 @@ where ContactName = 'Bilbo Baggins'
 ## list orders grouped by customer showing the number of orders per customer. _Rattlesnake Canyon Grocery_ should have 7 orders.
 select * 
 from Customers
-join Orders on Orders.CustomerID = Customers.CustomerID and Customers.CustomerName = 'Rattlesnake Canyon Grocery'
+join Orders on Orders.CustomerID = Customers.CustomerID 
+and Customers.CustomerName = 'Rattlesnake Canyon Grocery'
 order by Customers.CustomerName 
 
 or
@@ -57,7 +58,7 @@ or
 select * 
 from Customers
 join Orders on Orders.CustomerID = Customers.CustomerID
-order by Customers.CustomerName 
+order by Customers.CustomerName
 
 
 ## list customers names and the number of orders per customer. Sort the list by number of orders in descending order. _Ernst Handel_ should be at the top with 10 orders followed by _QUICK-Stop_, _Rattlesnake Canyon Grocery_ and _Wartian Herkku_ with 7 orders each.
@@ -80,5 +81,5 @@ order by TotalOrders
 delete from Customers 
 where Customers.CustomerID
 not in
-(select CustomerID from Orders where Orders.CustomerID)
+(select CustomerID from Orders)
 
